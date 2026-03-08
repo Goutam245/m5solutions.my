@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 355 82% 56%;
+    --accent-foreground: 0 0% 100%;
+    --highlight: 355 82% 56%;
+    --highlight-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 220 9% 46%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 355 82% 56%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 355 82% 56%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 355 82% 56%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 355 82% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-secondary/80 backdrop-blur-xl border border-accent/10 rounded-xl;
+    box-shadow: 0 0 30px -10px hsl(355 82% 56% / 0.15);
+  }
+  .glass-card:hover {
+    box-shadow: 0 0 40px -5px hsl(355 82% 56% / 0.3);
+  }
+  .section-dark {
+    background: #0D0D0D;
+    @apply text-primary-foreground;
+  }
+  .section-light {
+    @apply bg-muted text-foreground;
+  }
+  .section-navy {
+    background: #0D0D0D;
+    @apply text-primary-foreground;
+  }
+  .diagonal-top {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+  }
+  .diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+  .red-line {
+    @apply h-1 w-16 bg-accent rounded-full;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(355 82% 56%), hsl(355 82% 46%));
+  }
+  .btn-primary-m5 {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_-5px_hsl(355_82%_56%/0.5)] hover:-translate-y-0.5;
+  }
+  .btn-outline-m5 {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-accent/50 text-foreground font-semibold rounded-lg transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:border-accent hover:-translate-y-0.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
